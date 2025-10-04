@@ -1,18 +1,27 @@
-import { useRouter } from "expo-router"
+import { router } from "expo-router"
 import { ArrowRight, Mail, Radio, User } from "lucide-react-native"
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native"
 import { Input } from "../../components/input"
-import { colors } from "./colors"
+import { colors } from "../colors"
 
 export default function Index() {
-  const router = useRouter()
+  function trocaPagina() {
+    router.push("/proximaTela/Tela02")
+  }
+
   return (
-    <View>
-      <Image
-        style={styles.background}
-        source={require("../../assets/Background.png")}
-      />
-      <View style={styles.container}>
+    <ImageBackground
+      style={styles.background}
+      source={require("../../assets/Background.png")}
+    >
+      <View>
         <View style={styles.title}>
           <Image
             style={styles.logo}
@@ -41,13 +50,10 @@ export default function Index() {
           </Text>
         </View>
         <View style={styles.inscricao}>
-          <Text style={styles.incricaoTitulo}>Inscrição</Text>
+          <Text style={styles.inscricaoTitulo}>Inscrição</Text>
           <Input placeHolder="Nome completo" Icon={User} />
           <Input placeHolder="E-mail" Icon={Mail} />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => router.push("/proximaTela/styles")}
-          >
+          <TouchableOpacity style={styles.button} onPress={trocaPagina}>
             <View style={styles.textoButton}>
               <Text style={styles.confirmar}>Confirmar</Text>
               <ArrowRight size={20} color={colors.blue[300]} />
@@ -55,7 +61,7 @@ export default function Index() {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ImageBackground>
   )
 }
 
@@ -74,23 +80,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.gray[500],
     padding: 20,
     borderRadius: 10,
-    alignItems: "flex-start",
     justifyContent: "center",
   },
   textoButton: {
     flexDirection: "row",
-    gap: 172,
+    justifyContent: "space-between",
+    width: "100%",
   },
   inscricao: {
     padding: 24,
     borderRadius: 16,
     backgroundColor: colors.gray[700],
-    marginLeft: 16,
-    marginRight: 16,
     width: 343,
     height: 272,
   },
-  incricaoTitulo: {
+  inscricaoTitulo: {
     color: colors.gray[200],
     fontSize: 18,
     fontWeight: "500",
@@ -105,13 +109,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   background: {
-    flex: 1,
     width: 375,
-    height: 826,
-  },
-  container: {
-    zIndex: 10,
-    position: "absolute",
+    height: "100%",
+    padding: 16,
+    paddingTop: 32,
   },
   logo: {
     marginBottom: 20,
@@ -119,9 +120,6 @@ const styles = StyleSheet.create({
     height: 24,
   },
   title: {
-    marginTop: 32,
-    marginLeft: 16,
-    marginRight: 16,
     marginBottom: 40,
     height: 130,
     width: 343,
@@ -144,8 +142,6 @@ const styles = StyleSheet.create({
     width: 343,
     backgroundColor: colors.gray[700],
     borderRadius: 16,
-    marginLeft: 16,
-    marginRight: 16,
     marginBottom: 16,
   },
   tituloSobre: {

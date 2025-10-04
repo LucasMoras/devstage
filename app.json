@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "devlinks",
-    "slug": "devlinks",
+    "name": "devStage",
+    "slug": "devStage",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "devlinks",
-    "userInterfaceStyle": "automatic",
+    "scheme": "devstage",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash-icon.png",

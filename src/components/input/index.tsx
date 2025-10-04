@@ -1,4 +1,4 @@
-import { colors } from "@/src/app/index/colors"
+import { colors } from "@/src/app/colors"
 import { LucideIcon } from "lucide-react-native"
 import { TextInput, View } from "react-native"
 import { styles } from "../input/styles"
